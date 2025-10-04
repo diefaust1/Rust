@@ -1,6 +1,7 @@
 [package]
-name = "sort_time"
+name = "crack_me"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+rand = "0.8.5"
