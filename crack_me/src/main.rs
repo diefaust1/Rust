@@ -1,15 +1,36 @@
 use std::io;
 
-fn main() {
-    println!("Guess the number!");
+fn main() 
+{
+    let secret_number: u32 = 1550;
 
-    println!("Please input your guess.");
+    println!("Password?");
 
-    let mut guess = String::new();
+    loop 
+    {
+        let mut guess: String = String::new();
 
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
 
-    println!("You guessed: {guess}");
+        let guess: u32 = match guess.trim().parse() 
+        {
+            Ok(num) => num,
+            Err(_) => 
+            {
+                println!("Wrong Password");
+                continue;
+            }
+        };
+
+        if guess == secret_number
+        {
+            println!("You have potential to be a hacker...");
+            break;
+        }else 
+        {
+            println!("Wrong Password")
+        }
+    }
 }
