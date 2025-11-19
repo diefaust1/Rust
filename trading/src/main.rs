@@ -4,7 +4,7 @@ use yfinance_rs::{Interval, Range, Ticker, YfClient};
 async fn main() -> Result<(), Box<dyn std::error::Error>> 
 {
     let client = YfClient::default();
-    let ticker = Ticker::new(&client, "BMW");
+    let ticker = Ticker::new(&client, "AAPL");
 
     // Get the latest quote
     let quote = ticker.quote().await?;
