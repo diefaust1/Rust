@@ -9,11 +9,11 @@ fn main() {
 
     //Variables
     let args: Vec<String> = env::args().collect();
-    let outs:&String  = &args[1];
-    let pot:&String = &args[2];
-    let bet:&String = &args[3];
-    let cout_other_players:&String = &args[4];
-    let stage: &String = &args[5];
+    let outs:&str  = &args[1];
+    let pot:&str = &args[2];
+    let bet:&str = &args[3];
+    let cout_other_players:&str = &args[4];
+    let stage: &str = &args[5];
     let mut card_odds: f32 = 0.0;
     let mut pot_odds: f32 = 0.0;
 
@@ -60,7 +60,15 @@ fn calc_pot_odds(bet: i32, pot_size: i32) -> f32
     
     return calc_odds;   
 }
-fn parse_arg_to_i32 ()
+fn parse_string_to_i32 (p_string: &str) -> i32
 {
+    match p_string.parse::<i32>() {
 
+        Ok(num) => return num,
+        Err(_) => 
+        {
+            eprintln!("Error: input must be a number");
+            std::process::exit(1);
+        }
+    }
 }
