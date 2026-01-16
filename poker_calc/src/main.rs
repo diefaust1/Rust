@@ -25,11 +25,9 @@ fn main() {
         return;
     }
 
-    
-
-    card_odds = calc_card_odds(FLOP_SIZE, outs, DECK_SIZE);
+    card_odds = calc_card_odds(FLOP_SIZE, parse_string_to_i32(outs), DECK_SIZE);
     println!("Card odds: {card_odds}");
-    pot_odds = calc_pot_odds(bet, pot);
+    pot_odds = calc_pot_odds(parse_string_to_i32(bet), parse_string_to_i32(pot));
     println!("Pot odds: {pot_odds}");
 
     if card_odds < pot_odds 
